@@ -1,0 +1,29 @@
+extend ../index.pug
+
+block login
+    // start breadcrum
+    section.breadcumb.container.breadcumb--format
+        p.breadcumb__title Trang chủ
+        <i class="fas fa-caret-right"></i>
+        p.breadcumb__subt-title Đăng nhập
+    // end breadcrum
+    
+    section.login.container
+        .login__left
+            p.register__title THÔNG TIN ĐĂNG NHẬP:
+            form(action="" class="register__form-info-user")
+                - var form_title = ["Họ và tên:", 'Email:']
+                each value in form_title
+                    .register__form-group.login__form-group--format
+                        label(for="name" class="register__lable-input")= value 
+                        |#[span.register__maker *] 
+                        input(type="text" id="name" class="register__input")
+                .register__form-group.login__form-group--format.login__form-group-check-box--format
+                    input(type="checkbox" class="register_checkbox")
+                    label(for="" class="register__lable-checkbox") Ghi nhớ đăng nhập
+                    a(href="" class="login__forget-pass-word") Bạn quên mật khẩu?
+                a(href="" class="product-item__link-detail product-item__link-btn") ĐĂNG NHẬP
+        .login__right
+            p.register__title BẠN CHƯA CÓ TÀI KHOẢN?
+            P.login__description Đăng kí tài khoản để mua hàng nhanh hơn. Theo dõi đơn đặt hàng, vận chuyển. Cập nhật các tin tức sự kiện và các chương trình giảm giá của chúng tôi.
+            a(href="../../layouts/register.html" class="product-item__link-buy product-item__link-btn") ĐĂNG KÍ

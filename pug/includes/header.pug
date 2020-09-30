@@ -1,0 +1,123 @@
+include ../mixins/home.pug
+include ../variables/home.pug
+mixin list-icon-top-header(values)
+    each value in values
+        li(class=attributes.class + '-list-item')
+            a(href="" class=attributes.class + '-list-link')!= value
+
+- var icons = ['<i class="fab fa-facebook-f"></i>', '<i class="fab fa-google-plus-g"></i>','<i class="fab fa-instagram"></i>', '<i class="fab fa-twitter"></i>'] 
+
+header
+    .top
+        .container.top__wrapper
+            .top__socials
+                ul.top__socials-list
+                    +list-icon-top-header(icons)(class="top__socials")
+            .top__login
+                ul.top__login-list
+                    li(class='top__login-list-item')
+                        a(href="../../layouts/register.html" class='top__login-list-link') đăng kí
+                    li(class='top__login-list-item')
+                        a(href="../../layouts/login.html" class='top__login-list-link') đăng nhập
+    // end header top
+
+    // start header middle (logo + hotline +  search)
+    section.middle
+        .container.middle__wrapper
+            .middle__logo
+                h1
+                    a(href="../../layouts/home.html" class="logo__link") 
+                        img(src="../../assets/images/Logo.png", class="middle__logo-img" alt="logo")
+            .middle__hotline
+                .middle__hotline-hotline
+                    p.middle__hotline-title hotline :
+                    p.middle__hotline-phone (04) 9500 9650 - (04) 9500 8850
+                .middle__hotline-order
+                    p.middle__hotline-title đặt hàng nhanh :
+                    p.middle__hotline-phone (04) 9500 9650 - (04) 9500 8850
+            .middle__search-bar
+                input(type="text" placeholder="Tìm kiếm..." class="middle__input-search")
+    // end header middle (logo + hotline +  search)
+
+    // start menu
+    section.menu
+        nav.container.menu__wrapper
+            .menu__wrap
+                a(href="" class="menu__responsive menu__responsive--disable")
+                    i(class="fas fa-bars")
+                ul.menu__list
+                    li.menu__list-item.menu__list-item--hover.menu__list-mega-menu
+                        a(href="../../layouts/home.html" class="menu__list-link") trang chủ
+
+                        ul.sub-menu.mega-menu.mega-menu--disable
+                            li.sub-menu__block
+                                ul.sub-menu__list
+                                    li.sub-menu__list-title
+                                    +icon-title('MÁY Khoan đa năng cnc')(class="icon--format")
+                                    - var list_item = ["Máy khoan CNC điện ", "Máy phay đa năng 3R", "Máy hàn, cắt kim loại", "Máy in phun tích điện", "Máy ép gỗ chuẩn Nano"]
+                                    each value in list_item
+                                        +list-item(value)(class="mega-menu__item--format")
+                            li.sub-menu__block
+                                ul.sub-menu__list
+                                    li.sub-menu__list-title
+                                    +icon-title('MÁY cắt plasmar')(class="icon--format")
+                                    - var list_item = ["Máy khoan CNC điện ", "Máy phay đa năng 3R", "Máy hàn, cắt kim loại", "Máy in phun tích điện", "Máy ép gỗ chuẩn Nano"]
+                                    each value in list_item
+                                        +list-item(value)(class="mega-menu__item--format")
+                            li.sub-menu__block
+                                ul.sub-menu__list
+                                    li.sub-menu__list-title
+                                    +icon-title('MÁY phay công nghiệp')(class="icon--format")
+                                    - var list_item = ["Máy khoan CNC điện ", "Máy phay đa năng 3R", "Máy hàn, cắt kim loại", "Máy in phun tích điện", "Máy ép gỗ chuẩn Nano"]
+                                    each value in list_item
+                                        +list-item(value)(class="mega-menu__item--format")
+                            li.sub-menu__block
+                                ul.sub-menu__list
+                                    li.sub-menu__list-title
+                                    +icon-title('MÁY ép nhựa thủ công')(class="icon--format")
+                                    - var list_item = ["Máy khoan CNC điện ", "Máy phay đa năng 3R", "Máy hàn, cắt kim loại", "Máy in phun tích điện"]
+                                    each value in list_item
+                                        +list-item(value)(class="mega-menu__item--format")
+                            li.sub-menu__block
+                                ul.sub-menu__list
+                                    li.sub-menu__list-title
+                                    +icon-title('MÁY uống tôn điện')(class="icon--format")
+                                    - var list_item = ["Máy khoan CNC điện ", "Máy phay đa năng 3R", "Máy hàn, cắt kim loại", "Máy in phun tích điện"]
+                                    each value in list_item
+                                        +list-item(value)(class="mega-menu__item--format")
+                            li.sub-menu__block
+                                ul.sub-menu__list
+                                    li.sub-menu__list-title
+                                    +icon-title('MÁY nén khí cnc')(class="icon--format")
+                                    - var list_item = ["Máy khoan CNC điện ", "Máy phay đa năng 3R", "Máy hàn, cắt kim loại", "Máy in phun tích điện"]
+                                    each value in list_item
+                                        +list-item(value)(class="mega-menu__item--format")
+                            li.sub-menu__block-img
+                                img(src="../../assets/images/img-mega.png", alt="")
+
+                    li.menu__list-item.menu__list-item--hover
+                        a(href="../../layouts/popup.html" class="menu__list-link") giới thiệu 
+                        +submenu({"Giới thiệu chung" : "" , "Hệ thống cửa hàng" : ["Hệ thống cửa hàng A", "Hệ thống cửa hàng A1","Hệ thống cửa hàng A2","Hệ thống cửa hàng A3"], "Chính sách ưu đãi" : "", "Thông tin tuyển dụng" : ""})(class= "menu__list-item--hover")
+                    li.menu__list-item
+                        a(href="../../layouts/list.html" class="menu__list-link") sản phẩm
+                    li.menu__list-item
+                        a(href="../../layouts/grid.html" class="menu__list-link") tin khuyến mãi
+                    li.menu__list-item
+                        a(href="../../layouts/blog.html" class="menu__list-link") dịch vụ
+                    li.menu__list-item
+                        a(href="../../layouts/page_404.html" class="menu__list-link") liên hệ
+                
+            .menu__cart
+                a(href="../../layouts/cart.html" class="menu__cart-link")
+                    <i class="fas fa-shopping-cart"></i>
+                    small.menu__cart-number 0
+                .menu__cart-drop-down.menu__cart-drop-down--disable
+                    +block-items-drop-down(val_drop_down)
+                    +block-items-drop-down(val_drop_down2)
+                    +block-items-drop-down(val_drop_down3)
+                    .menu__total
+                        p.menu__total-money tổng tiền: 
+                        p.menu__total-price 4.500.000 Đ
+                        a(href="" class="menu__total-pay") thanh toán
+    // end menu
+

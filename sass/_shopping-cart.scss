@@ -1,0 +1,66 @@
+.shopping-cart{
+    table, th, .quality{
+        border:1px solid map.get($color,"ebebeb");
+    }
+    table{
+        width: 100%;
+        @extend %text-uppercase;
+        border-collapse: collapse;
+    }
+    th{
+        @extend %font-roboto-medium;
+        font-size: 14px;
+        color: map.get($color,"252525");
+        padding: 20px 0 25px;
+    }
+    td{
+        @extend th;
+        text-align: center;
+    }
+    &__img{
+        width: 150px;
+        height: 125px;
+        object-fit: cover;
+    }
+    .quality{
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        text-indent: 10px;
+    }
+    .icon-close{
+        color: #ff0000;
+        font-size: 18px;
+    }
+    td:nth-child(1){
+        width: 6%;
+    }
+    td:last-child{
+        width: 6%;
+    }
+    .product-item__group-btn{
+        justify-content: flex-end;
+        padding: 20px 0px 100px;
+    }
+    .product-item__link-btn {
+        font-size: 12px;
+        padding: 15px 25px;
+        margin-left:5px;
+    }
+
+    table.total{
+        width: 35%;
+        margin-left: auto;
+        margin-top:30px;
+
+        td{
+            @extend td;
+            text-align: right;
+            padding-right: 30px;
+        }
+        .total-pay{
+            color: #ff0000;
+        }
+    }
+    
+}

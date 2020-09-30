@@ -1,0 +1,157 @@
+extend ../index.pug
+
+block home
+    // start slider
+    section.slider.container
+        .slider__left
+            input(type="radio" name="slider" id="slider1")
+            input(type="radio" name="slider" id="slider2")
+            input(type="radio" name="slider" id="slider3")
+            .slider__wrapper
+                .slider__block#one
+                    a(href="").slider__block-item
+                        img(src="../../assets/images/banner-1.png", alt="banner 1" class="slider__img")
+                .slider__block#two
+                    a(href="").slider__block-item
+                        img(src="../../assets/images/banner2.png", alt="banner 1" class="slider__img")
+                .slider__block#three
+                    a(href="").slider__block-item
+                        img(src="../../assets/images/banner3.png", alt="banner 1" class="slider__img")
+
+            ul.slider__number-of-slider
+                li.slider__item#dots1
+                    label(for="slider1").slider__item-link
+                li.slider__item#dots2
+                    label(for="slider2").slider__item-link
+                li.slider__item#dots3
+                    label(for="slider3").slider__item-link
+
+        .slider__right
+            +group-slider({'icon':'<i class="fas fa-plane"></i>', 'title': "miễn phí vận chuyển", 'description' : 'Chúng tôi vận chuyển miễn phí với các đơn hàng  trị giá trên 100.000 Đ'})
+            +group-slider({'icon':'<i class="fas fa-sync-alt"></i>', 'title': "chính sách đổi trả", 'description' : 'Nếu phát hiện lỗi của nhà sản xuất, chúng tôi sẽ đổi mới sản phẩm trong 7 ngày đầu tiên'})
+            +group-slider({'icon':'<i class="fas fa-gift"></i>', 'title': "KHUYẾN MẠI HÀNG TUẦN", 'description' : 'Mỗi thứ 7 hàng tuần đều có chương trình giảm giá và khuyến mại lớn.'})
+            +group-slider({'icon':'<i class="fas fa-thumbs-up"></i>', 'title': "CAM KẾT HÀNG CHÍNH HÃNG", 'description' : 'Chúng tôi cam kết bán hàng chính hãng 100% với tất cả các loại sản phẩm.'})   
+    // end slider
+
+    // start sản phẩm nổi bật
+    section.hot-products.container
+        .hot-products__row-title
+            +icon-title("sản phẩm nổi bật")(class="hot-products-title--format")
+            .hot-products__group-button
+                a(href="" class="hot-products__link-pre hot-products__link")
+                    i(class="fas fa-caret-left")
+                a(href="" class="hot-products__link-next hot-products__link")
+                    i(class="fas fa-caret-right")
+        .hot-products__row-content
+            .hot-products__left
+               
+                each value in value_hot_products
+                    +icon-title(value)(class="wrapper-icon-title--format")
+            .hot-products__right
+                +product-item(value_products)
+                +product-item(value_products2)
+                +product-item(value_products3)
+                +product-item(value_products4)
+                +product-item(value_products5)
+                +product-item(value_products6)
+    // end sản phẩm nổi bật
+
+    // start new product
+    section.new-product.container
+        .new-product__row-title
+            +icon-title("sản phẩm mới")(class="new-product-title--format")
+
+            +category-tag(category_tag)(class="new-product")
+
+            .new-product__group-button
+                a(href="" class="new-product__link-pre new-product__link")
+                    i(class="fas fa-caret-left")
+                a(href="" class="new-product__link-next new-product__link")
+                    i(class="fas fa-caret-right")
+        .new-product__row-content
+            +product-item(value_new_product)
+            +product-item(value_new_product2)
+            +product-item(value_new_product3)
+    // end new product
+
+    // start banner mid
+    section.banner-mid.container
+        a(href="" class="banner-mid__link")
+            img(src="../../assets/images/banner2.png", class="banner-mid__img"  alt="banner mid 1")
+        a(href="" class="banner-mid__link")   
+            img(src="../../assets/images/banner3.png", class="banner-mid__img"  alt="banner mid 1")
+    // end banner mid
+
+    //start selling products (sản phẩm bán chạy)
+    section.selling-product.container
+        .selling-product__row-title
+            +icon-title("sản phẩm bán chạy")(class="selling-product-title--format")
+
+            +category-tag(category_tag)(class="selling-product")
+
+            .new-product__group-button
+                a(href="" class="selling-product__link-pre selling-product__link")
+                    i(class="fas fa-caret-left")
+                a(href="" class="selling-product__link-next selling-product__link")
+                    i(class="fas fa-caret-right")
+        .selling-product__row-content
+            +product-item(sell_products6)
+            +product-item(sell_products2)
+            +product-item(sell_products4)
+            +product-item(sell_products3)
+            +product-item(sell_products5)
+    //end selling products (sản phẩm bán chạy)
+
+
+    // start banner 3
+    section.banner-three.container
+        a(href="")
+            img(src="../../assets/images/banner 3.png", alt="banner 3" class="banner-three__img")
+    // end banner 3
+
+    // start new available(hàng mới về)
+    section.new-available.container
+        .new-available__row-title
+            +icon-title("Hàng mới về")(class="new-available-title--format")
+
+            .new-available__group-button
+                a(href="" class="new-available__link-pre new-available__link")
+                    i(class="fas fa-caret-left")
+                a(href="" class="new-available__link-next new-available__link")
+                    i(class="fas fa-caret-right")
+        
+        .new-available__row-content
+            +product-item(new_available)
+            +product-item(new_available2)
+            +product-item(new_available3)
+            +product-item(new_available4)
+    // end new available
+
+    // start brand home
+    section.brand
+        .container.brand__wrapper
+            .brand__btn.brand__btn-left
+                a(href="" class="brand__link-btn")
+                    i(class="fas fa-chevron-left")
+            a(href="" class="brand__link")
+                img(src="../../assets/images/brand-2.png", alt=" brand 1" class="brand__img")
+            a(href="" class="brand__link")
+                img(src="../../assets/images/brand-1.png", alt=" brand 2" class="brand__img")
+            a(href="" class="brand__link")
+                img(src="../../assets/images/brand-3.png", alt=" brand 3" class="brand__img")
+            a(href="" class="brand__link")
+                img(src="../../assets/images/brand-4.png", alt=" brand 4" class="brand__img")
+            a(href="" class="brand__link")
+                img(src="../../assets/images/brand-5.png", alt=" brand 5" class="brand__img")
+            .brand__btn.brand__btn-right
+                a(href="" class="brand__link-btn")
+                    i(class="fas fa-chevron-right")
+    // end brand home
+
+    // start new letter
+    section.new-letter
+        .new-letter__wrapper
+            p.new-letter__title Đăng kí để nhận tin tức khuyến mãi hằng tuần
+            input(type="email" name="email" placeholder="Nhập email của bạn...")
+            input(type="submit" value="Đăng Kí" name="dang_ki")
+    // end  new letter

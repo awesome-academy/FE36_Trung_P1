@@ -1,0 +1,104 @@
+extend ../index.pug
+
+block details
+    .container
+        // start breadcrum
+        section.breadcumb
+            p.breadcumb__title Trang chủ
+            <i class="fas fa-caret-right"></i>
+            p.breadcumb__title Danh mục sản phẩm
+            <i class="fas fa-caret-right"></i>
+            p.breadcumb__subt-title Máy Khoan CNC 3D
+        // end breadcrum
+        include ../variables/list.pug
+        .detail
+            .detail-left
+                // start sản phẩm nổi bật
+                section.hot-products
+                    .hot-products__row-content
+                        .hot-products__left
+                            each value in detail_hot_products
+                                +icon-title(value)(class="wrapper-icon-title--format")
+                // end sản phẩm nổi bật
+
+                // start sản phẩm khuyến mãi
+                section.hot-products
+                    .hot-products__row-content
+                        .hot-products__left
+                            +icon-title('sản phẩm khuyến mãi', '', '<i class="fas fa-gift"></i>')(class="wrapper-icon-title--format")
+                            +product-item(sell_products6)
+                            +product-item(sell_products5)
+                            +product-item(sell_products4)
+                            +product-item(sell_products3)
+                            +product-item(sell_products2)
+                // end sản phẩm khuyến mãi
+            
+            .detail-right
+                .detail-right__details
+                    .detail-right__left
+                        a(href="" class="detail-right__link-img")
+                            img(src="../../assets/images/detail.png", class="detail-right__img" alt="khoan cnd")
+                        .detail-right__group
+                            each value in detail_list_img
+                                a(href="" class="detail-right__link-img")
+                                    img(src=value , class="detail-right__group-img"  alt="list image detail")
+                    .detail-right__right
+                        .detail-right__top
+                            h3
+                                a(href= url class="product-item__link-title")=  'Máy khoan cnc 3D'
+                            .product-item__rate
+                                .product-item__point
+                                    i(class="fas fa-star")
+                                    i(class="fas fa-star")
+                                    i(class="fas fa-star")
+                                    i(class="fas fa-star")
+                                    i(class="far fa-star")
+                                p.product-item__number-commands= `(12 Đánh giá)`
+                            a(href="" class="product-item__link-comment") Gửi bình luận của bạn
+                            p.product-item__price= 'GNY: 2.350.000 Đ'
+                        
+                        .detail-right__info
+                            p.detail__title Thông tin sản phẩm:
+                            p.detail__description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit, sed do...
+                        
+                        .detail-right__size-color
+                            .size
+                                p.detail__title Size:
+                                select(name="size" class="select--format")
+                                    option -- Chọn size --
+                            .color
+                                p.detail__title Màu sắc:
+                                select(name="size" class="select--format")
+                                    option -- Chọn màu --
+                        .detail-right__buy-now
+                            input(type="number" class="quality" value="1")
+                            a(href="" class="product-item__link-buy product-item__link-btn") Mua Ngay
+
+                        .detail-right__share
+                            a(href="")
+                                img(src="../../assets/images/share.png", alt="share")
+                
+                .detail-right__info-product
+                    ul.detail-right__list-tag
+                        li.detail-right__item-tag.detail__title Thông tin sản phẩm
+                        li.detail-right__item-tag.detail__title Đánh giá - nhận xét
+                        li.detail-right__item-tag.detail__title thẻ tags
+                    .detail-right__content
+                        p.detail__description.detail__description--format  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit, sed do
+                        p.detail__description.detail__description--format  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit orem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit, sed do
+                        p.detail__description.detail__description--format  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit
+                        p.detail__description.detail__description--format  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, cing elit, sed do sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, t, sed do sit amet, consectetur adipiscing elit
+
+                section.hot-products.detail-product--format
+                    .hot-products__row-title
+                        +icon-title("sản phẩm tương tự")(class="hot-products-title--format")
+                        .hot-products__group-button
+                            a(href="" class="hot-products__link-pre hot-products__link")
+                                i(class="fas fa-caret-left")
+                            a(href="" class="hot-products__link-next hot-products__link")
+                                i(class="fas fa-caret-right")
+                    .hot-products__row-content
+                        .hot-products__right
+                            +product-item(detail_pro_direction1)
+                            +product-item(detail_pro_direction2)
+                            +product-item(detail_pro_direction3)

@@ -1,0 +1,17 @@
+extend ../index.pug 
+
+block popup
+    section.popup
+        .popup__wrapper
+            i(class="fas fa-times popup__btn-close")
+            p.popup__title đăng kí nhận tin tức chúng tôi
+            p.popup__description Bạn muốn nhanh chóng nhận các tin tức khuyến mại và ưu đãi lớn của chúng tôi hàng tuần ? đăng kí ngay theo form dưới đây
+            form(action="" class="register__form-info-user")
+                .register__form-group.login__form-group--format
+                    input(type="text" id="name" class="register__input" placeholder="Nhập email của bạn vào đây...")
+                a(href="" class="product-item__link-buy product-item__link-btn") đăng kí
+                .register__form-group.login__form-group--format.login__form-group-check-box--format
+                    input(type="checkbox" class="register_checkbox")
+                    label(for="" class="register__lable-checkbox") Không hiện thông báo này
+                   
+                
