@@ -1,0 +1,36 @@
+extend ../index.pug
+
+block register
+    // start breadcrum
+    section.breadcumb.container.breadcumb--format
+        p.breadcumb__title Trang chủ
+        <i class="fas fa-caret-right"></i>
+        p.breadcumb__subt-title Đăng kí
+    // end breadcrum
+    
+    section.register.container
+        p.register__title THÔNG TIN CÁ NHÂN:
+        form(action="" class="register__form-info-user")
+            - var form_title = ["Họ và tên:", 'Email:', 'Số điện thoại:', 'Địa chỉ:']
+            each value in form_title
+                .register__form-group
+                    label(for="name" class="register__lable-input")= value 
+                    |#[span.register__maker *] 
+                    input(type="text" id="name" class="register__input")
+            .register__form-group
+                input(type="checkbox" class="register_checkbox")
+                label(for="" class="register__lable-checkbox") Đăng kí nhận tin tức qua email
+        p.register__title THÔNG TIN ĐĂNG NHẬP:
+        form(action="" class="register__form-info-user")
+            - var form_title = ["Họ và tên:", 'Email:']
+            each value in form_title
+                .register__form-group
+                    label(for="name" class="register__lable-input")= value 
+                    |#[span.register__maker *] 
+                    input(type="text" id="name" class="register__input")
+        .product-item__group-btn
+            a(href="" class="product-item__link-detail product-item__link-btn") QUAY LẠI         
+            a(href="" class="product-item__link-buy product-item__link-btn") ĐĂNG KÍ
+        
+            
+                

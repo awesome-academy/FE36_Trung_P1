@@ -1,0 +1,135 @@
+/* start footer */
+.footer{
+    .footer-info{
+        padding: 60px 0;
+        background-color: #f7f7f7;
+
+        &-title--format{
+            font-size: 16px;
+            @extend %font-roboto-medium;
+            color:map.get($color,"252525");
+        }
+        &__top{
+            $flex : ("display" : flex, 'justify-content' : space-between);
+            @include flex($flex);
+            padding-bottom: 60px;
+            border-bottom: 1px solid map.get($color,"ebebeb");
+        }
+        &__block{
+            width: 15%;
+        }
+        &__block:first-child{
+            width: 25%;
+        }
+
+        &__bottom{
+            $flex : ("display" : flex,'justify-content' : space-between);
+            @include flex($flex);
+            margin-top:35px;
+            .footer-info__block{
+                width: 48%;
+                $flex : ("display" : flex, "align-items" : center);
+                @include flex($flex);
+
+                & > i{
+                    color:map.get($color,"yellow");
+                    padding:12px;
+                    border-radius: 30px;
+                    border: 2px solid map.get($color,"yellow");
+                    font-size: 24px;
+                    margin-right:10px;
+                }
+                .footer-info__title{
+                    margin-bottom: 5px;
+                }
+            }
+        }
+        &__title{
+            @extend %font-arial;
+            font-size: 13px;
+            color: #636363;
+            margin-bottom: 20px;
+        }
+        &__pay{
+            width: 45%;
+            $flex : ("display" : flex,'justify-content' : space-between,"flex-wrap": wrap);
+            @include flex($flex);
+        }
+        &__contact{
+            width: 45%;
+            position: relative;
+        }
+        &__group-info-pay{
+            $flex : ("display" : flex, 'justify-content' : space-between, "flex-wrap": wrap);
+            @include flex($flex);
+            gap:5px;
+        }
+        &__group-contact{
+
+            $flex : ("display" : flex, "align-items" : center, 'justify-content' : space-between, "flex-wrap": wrap);
+            @include flex($flex);
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        &__hotline{
+            @extend %font-arial;
+            font-weight: bold;
+            font-size: 18px;
+            color : #ff0000;
+        }
+        
+    }
+    .wrapper-icon-title{
+        padding:14px 0;
+    }
+    .wrapper-icon-title--format{
+        color: #636363;
+    }
+    .wrapper-icon-title--format::first-letter{
+        @extend %text-uppercase;
+    }
+    .wrapper-icon-title .wrapper-icon-title--format {
+        margin-left:0px;
+    }
+    .wrapper-icon-title  .wrapper-icon-title__list + .wrapper-icon-title--format {
+        margin-left: 10px;
+    }
+    
+    &-bottom{
+        height: 60px;
+        background-color: map.get($color,"252525");
+
+        &-wrapper{
+            $flex : ("display" : flex, "align-items" : center);
+            @include flex($flex);
+            height: 100%;
+        }
+        &__coppy-right{
+            width: 49%;
+        }
+        &__item{
+            display: inline-block;
+        } 
+        &__title{
+            @extend %font-arial;
+            font-size: 13px;
+            color:lighten($color: map.get($color,"252525"), $amount: 60);
+        }
+        &__menu{
+            margin-left:auto;
+        }
+        .marker{
+            @extend %font-arial;
+            font-weight: bold;
+            color: map.get($color,"light");
+        }
+        &__item{
+            padding-right:10px;
+        }
+        &__link{
+            @extend .footer-bottom__title;
+        }
+    }
+}
+/* end footer */

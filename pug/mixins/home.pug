@@ -1,0 +1,159 @@
+// menu drop down
+mixin block-items-drop-down(values)
+    .block
+        img(src=values.img, class="block__img" alt="img")
+        .content
+            h3.block__title= values.title
+            p.block__quality= `${values.quality} x` 
+            p.block__price= `${values.price} Đ`
+        .block__icon-close
+            a(href="" class="block__icon-link")
+                i(class="fas fa-times")
+
+//- // list item in submenu 
+//- mixin list-item(value)
+//-     li.sub-menu__list-item.menu__list-item--hover
+//-         i(class="fas fa-caret-right")
+//-         a(href="" class="sub-menu__list-link menu__list-link")= value
+
+//- // submenu
+//- mixin list-link(values)
+//-     ul.sub-menu.sub-menu--format.sub-menu--disable
+//-         each value in values
+//-             +list-item(value)
+
+//- // submenu
+//- mixin submenu(values)
+//-     ul.sub-menu.sub-menu--disable
+//-         each value, index in values
+//-             if value
+//-                 li.sub-menu__list-item.menu__list-item--hover
+//-                     i(class="fas fa-caret-right")
+//-                     a(href="" class="sub-menu__list-link menu__list-link")= index
+//-                     +list-link(value)
+//-             else
+//-                 +list-item(index)
+
+// list item in submenu 
+mixin list-item(value)
+    li.sub-menu__list-item(class!= attributes.class)
+        i(class="fas fa-caret-right")
+        a(href="" class="sub-menu__list-link menu__list-link")= value
+// submenu
+mixin list-link(values)
+    ul.sub-menu.sub-menu--format.sub-menu--disable
+        each value in values
+            +list-item(value)(class!= attributes.class)
+// submenu
+mixin submenu(values)
+    ul.sub-menu.sub-menu--disable
+        each value, index in values
+            if value
+                li.sub-menu__list-item(class!= attributes.class)
+                    i(class="fas fa-caret-right")
+                    a(href="" class="sub-menu__list-link menu__list-link")= index
+                    +list-link(value)(class!= attributes.class)
+            else
+                +list-item(index)(class!= attributes.class)
+
+// icon before title (exm: sản phẩm bán chay...)
+mixin icon-title(value, hide_icon= "", icon="")
+    if hide_icon
+        .wrapper-icon-title
+            a(href="" class!=attributes.class).wrapper-icon-title__link= value
+        
+    else
+        if icon
+            .wrapper-icon-title
+                .wrapper-icon-title__list(class!=attributes.class)!= icon
+                a(href="" class!=attributes.class).wrapper-icon-title__link= value
+        else       
+            .wrapper-icon-title
+                ul(class!=attributes.class).wrapper-icon-title__list
+                    li.wrapper-icon-title__item .
+                    li.wrapper-icon-title__item .
+                    li.wrapper-icon-title__item .
+                    li.wrapper-icon-title__item .
+                a(href="" class!=attributes.class).wrapper-icon-title__link= value
+
+
+
+mixin group-slider(values)
+    .slider__block
+        !=values.icon
+        .slider__content
+            p.slider__block-title= values.title
+            p.slider__block-description= values.description
+
+// block item product have price, image, title, command of product
+- var url = "../../layouts/detail.html"
+mixin product-item(values)
+    .product-item(class!= attributes.class)
+        if values.description
+            a(href= url)
+                img(src= values.img, alt= values.title class="product-item__img")
+            .product-item__wrapper
+                
+                h3
+                    a(href= url class="product-item__link-title")=  values.title
+                .product-item__rate
+                    .product-item__point
+                        i(class="fas fa-star")
+                        i(class="fas fa-star")
+                        i(class="fas fa-star")
+                        i(class="fas fa-star")
+                        i(class="far fa-star")
+                    p.product-item__number-commands= `(${values.command} Đánh giá)`
+                p.product-item__description= values.description
+                p.product-item__price= values.price
+                if values.status
+                    .product-item__group-btn.product-item__group-btn--disable
+                        a(href="" class="product-item__link-buy product-item__link-btn") Mua Ngay
+                        a(href="" class="product-item__link-detail product-item__link-btn") Xem Chi Tiết
+        else
+            a(href= url)
+                img(src= values.img, alt= values.title class="product-item__img")
+            p.product-item__price= values.price
+            h3
+                a(href="" class="product-item__link-title")=  values.title
+            .product-item__rate
+                .product-item__point
+                    i(class="fas fa-star")
+                    i(class="fas fa-star")
+                    i(class="fas fa-star")
+                    i(class="fas fa-star")
+                    i(class="far fa-star")
+                p.product-item__number-commands= `(${values.command} Đánh giá)`
+            if values.status
+                .product-item__group-btn.product-item__group-btn--disable
+                    a(href="" class="product-item__link-buy product-item__link-btn") Mua Ngay
+                    a(href="" class="product-item__link-detail product-item__link-btn") Xem Chi Tiết
+        
+
+mixin category-tag(values)
+    ul(class!=`${attributes.class}__category-tag`)
+        each value in values
+            li(class!=`${attributes.class}__item-tag`)
+                a(href="" class!=`${attributes.class}__link-tag`)= value 
+
+
+
+
+// footer
+mixin group-pay-info(image)
+    a(href="" class="footer-info__link")
+        img(src= image, alt="pay info")
+
+mixin block-contact(values)
+    .footer-info__block
+        i(class="fas fa-phone")
+        .footer-info__content
+            p.footer-info__title= values.title
+            p.footer-info__hotline= values.phone
+
+mixin footer-info-top(values)
+    .footer-info__block
+            +icon-title(value.title)(class="footer-info-title--format")
+            each value in values.item
+                +icon-title(value.content, value.disable, value.icon)(class="wrapper-icon-title--format")
+            

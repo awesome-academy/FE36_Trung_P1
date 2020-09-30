@@ -1,0 +1,21 @@
+extend ../common_blog.pug
+
+
+block blog-list
+    include ../variables/list.pug
+    include ../mixins/common.pug
+    .blog-list
+        +list-blog(value_list_blog)
+
+    .pagination
+            ul.pagination__list
+                li.pagination__item.pagination__item--format
+                    a(href="" class="pagination__link") Trang trước
+                li.pagination__item
+                    a(href="" class="pagination__link") 1
+                li.pagination__item
+                    a(href="" class="pagination__link") 2
+                li.pagination__item
+                    a(href="" class="pagination__link") 3
+                li.pagination__item.pagination__item--format
+                    a(href="" class="pagination__link") Trang cuối

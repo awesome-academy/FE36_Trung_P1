@@ -1,0 +1,84 @@
+extend ../index.pug
+
+block list
+    .container
+        // start breadcrum
+        section.breadcumb
+            p.breadcumb__title Trang chủ
+            <i class="fas fa-caret-right"></i>
+            p.breadcumb__subt-title Danh mục sản phẩm
+        // end breadcrum
+        include ../variables/list.pug
+        .list
+            .list-left
+                // start sản phẩm nổi bật
+                section.hot-products
+                    .hot-products__row-content
+                        .hot-products__left
+                            each value in value_hot_products
+                                +icon-title(value)(class="wrapper-icon-title--format")
+                // end sản phẩm nổi bật
+
+                // start tìm theo giá
+                section.hot-products
+                    .hot-products__row-content
+                        .hot-products__left
+                            +icon-title('Tìm theo mức giá', '', '<i class="fas fa-dollar-sign"></i>')(class="wrapper-icon-title--format")
+                            each value in value_price
+                                +icon-title(value.title)(class="wrapper-icon-title--format")
+                // end tìm theo giá
+
+                // start tìm theo màu sắc
+                section.hot-products.find-color
+                    .hot-products__row-content
+                        .hot-products__left
+                            +icon-title('tìm theo màu sắc', '', '<i class="fas fa-paint-brush"></i>')(class="wrapper-icon-title--format")
+                            each value in value_color
+                                +icon-title(value.title, '', value.icon)(class="wrapper-icon-title--format")
+                // end tìm theo màu sắc
+
+                // start sản phẩm khuyến mãi
+                section.hot-products
+                    .hot-products__row-content
+                        .hot-products__left
+                            +icon-title('sản phẩm khuyến mãi', '', '<i class="fas fa-gift"></i>')(class="wrapper-icon-title--format")
+                            +product-item(sell_products6)
+                            +product-item(sell_products5)
+                            +product-item(sell_products4)
+                            +product-item(sell_products3)
+                            +product-item(sell_products2)
+                // end sản phẩm khuyến mãi
+            
+            .list-right
+                .list-top
+                    .list-top__sort-by
+                        p.list-top__title Sắp xếp theo: 
+                        select(name="name_product" class="name_product name")
+                            option Tên sản phẩm
+                    .list-top__sort-by
+                        p.list-top__title Show: 
+                        select(name="show" class="name_product show")
+                            option 18
+                    .list-top__group-btn
+                        i(class="fas fa-bars")
+                        i(class="fas fa-gift")
+                .list-product
+                    block list-product
+                    block grid-product
+            
+                   
+                    
+
+
+        .pagination
+            ul.pagination__list
+                li.pagination__item.pagination__item--format
+                    a(href="" class="pagination__link") Trang trước
+                li.pagination__item
+                    a(href="" class="pagination__link") 1
+                li.pagination__item
+                    a(href="" class="pagination__link") 2
+                li.pagination__item
+                    a(href="" class="pagination__link") 3
+                li.pagination__item.pagination__item--format
+                    a(href="" class="pagination__link") Trang cuối

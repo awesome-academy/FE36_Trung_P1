@@ -1,0 +1,383 @@
+/* start header */
+.top{
+    width: 100%;
+    height: 50px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid darken(map.get($color,"light"), 5);
+    &__wrapper{
+        $flex : ("display" : flex, "align-items" : center);
+        @include flex($flex);
+        height: 100%;
+    }
+    &__socials-list-item{
+       @extend %li-top-header;
+        
+        &:first-child{
+            background-color:map.get($color,"yellow");
+
+            .top__socials-list-link:first-child{
+                color: map.get($color,"white");
+            }
+        }
+    }
+    &__socials-list-link{
+        color: #363636;
+    }
+    
+    &__login{
+        margin-left: auto;
+
+        &-list-item{
+            @extend %li-top-header;
+            &:first-child{
+                border-left: 1px solid darken(map.get($color,"light"), 5);
+            }
+        }
+
+        &-list-link{
+            color: map.get($color,"text");;
+            @extend %text-uppercase;
+            @extend %font-myriad;
+        }
+    }
+}
+.middle{
+    width: 100%;
+    height: 120px;
+
+    &__wrapper{
+        @extend .top__wrapper;
+        justify-content: space-between;
+    }
+    &__logo{
+        flex:1;
+    }
+    &__logo-img{
+        height: auto;
+        width: 140px;
+    }
+    &__hotline{
+        display: flex;
+        justify-content: space-between;
+
+        & > div{
+            padding-right: 50px;
+        }
+        &-title{
+            @extend %font-myriad;
+            color: map.get($color,"yellow");;
+            @extend %text-uppercase;
+        }
+        &-phone{
+            font-size: 13px;
+            color:map.get($color,"gray");
+        }
+    }
+    &__input-search{
+        $text-index: 20px;
+
+        width: 320px;
+        height: 50px;
+        border-radius: 25px;
+        border: .5px solid darken(#f7f7f7, 5);  
+        text-indent :$text-index;
+        outline:none;
+
+        background: map-get($color, "white") url(../assets/images/icon-searcch.png) no-repeat right center;
+        background-position-x: calc(100% - 20px);
+        background-size: 25px;
+
+        @extend %font-roboto;
+
+        &::placeholder{
+            text-indent:$text-index;
+            color: map.get($color,"gray");
+        }
+    }
+}
+
+.menu{
+    $background-color : #202020;
+    width: 100%;
+    height:70px;
+    background-color: $background-color;
+    .menu__responsive--disable{
+        display: none;
+    }
+   
+    // .menu__wrap:hover .menu__list{
+    //     display: block;
+    //     width: 100%;
+    //     position: absolute;
+    //     top:100%;
+    //     z-index: 3;
+    //     background-color: #202020;
+    //     .menu__list-item{
+    //         display: block;
+    //         border: {
+    //             right: 0;
+    //             bottom: 1px solid #2f2f2f;
+    //         };
+    //     }
+    // } 
+    &__wrapper{
+        $flex : ("display" : flex, "align-items" : center, 'justify-content' : space-between);
+        @include flex($flex);
+        height: 100%;
+        position: relative;
+    }
+
+    &__list-item{
+        position: relative;
+        display: inline-block;
+        padding:28px 20px;
+        border-right: 1px solid lighten($background-color, 6); 
+        &:first-child{
+            background-color: map.get($color,"yellow");;
+        }
+    }
+    &__list-link{
+        @extend %menu-list-item;
+    }
+    &__cart-link{
+        @extend %menu-list-item;
+
+        position: relative;
+        top:34.5%;
+
+        font-size:18px;
+        padding: 24px;
+        border : {
+            left : 1px solid lighten($background-color, 6);
+            right : 1px solid lighten($background-color, 6);
+        }
+    }
+    &__cart-number{
+        position: absolute;
+        font-size: 14px;
+        padding: 0px 6px;
+        background: map.get($color,"yellow");
+        border-radius: 10px;
+        text-align: center;
+        top: 20%;
+        left: 55%;
+    }
+    &__cart{
+        position: relative;
+        height: 100%;
+        &:hover &-drop-down{
+            display: initial;
+        }
+    }
+    &__cart-drop-down{
+        position: absolute;
+        top:100%;
+        right:0;
+        z-index: 9;
+        border:1px solid map.get($color,"ebebeb");
+        background-color: map.get($color,"white");
+        box-shadow: 2px 2px 5px 0 map.get($color,"ebebeb"), -2px 2px 5px map.get($color,"ebebeb");
+
+        &--disable{
+            display: none;
+        }
+
+        .block{
+            $flex : ("display" : flex, 'justify-content' : space-between);
+            @include flex($flex);
+            width: 295px;
+            padding:25px 10px;
+            border-top: 1px solid map.get($color,"ebebeb");
+
+            &:first-child{
+                border-top: 0 !important;
+            }
+
+            &__img{
+                object-fit: cover;
+                padding-right: 10px;
+                width: 80px;
+                height: 80px;
+            }
+            &__title{
+                @extend %font-roboto-medium;
+                font-size: 14px;
+                @extend %text-uppercase;
+            }
+            &__quality{
+                @extend %price-quality-drop-menu;
+                color: #a5a5a5;
+            }
+            &__price{
+                @extend %price-quality-drop-menu;
+                color: #ff0000;
+            }
+            &__icon-link{
+                color:map.get($color,"898989");
+                font-size:12px;
+                padding: 2px 5px;
+                border-radius: 13px;
+                border: 1px solid map.get($color,"ebebeb");
+            }
+        }
+
+        .menu__total{
+            text-align: right;
+            margin: 0 20px;
+            padding-top: 20px;
+            border-top: 1px solid map.get($color,"ebebeb");
+            &-money{
+                @extend %price-quality-drop-menu;
+                color: map.get($color,"text");;
+                @extend %text-uppercase;
+            }
+            &-price{
+                @extend %price-quality-drop-menu;
+                color: #ff0000;
+                @extend %text-uppercase;
+            }
+            &-pay{
+                @extend %text-uppercase;
+                @extend %font-roboto-medium;
+                padding:10px 15px;
+                background-color: map.get($color,"yellow");
+                color: map.get($color,"white");
+                display: table;
+                margin-left: auto;
+                margin: 20px 0 25px auto;
+               
+            }
+        }
+       
+    }
+
+    &__list-item--hover:hover{
+        & > :not(.mega-menu){
+            display: initial;
+        }
+    }
+    &__list-mega-menu{
+        position: initial !important;
+        &:hover .mega-menu{
+            display: grid !important;
+        }
+    }
+    .sub-menu{
+        position: absolute;
+        z-index: 9;
+        top:100%;
+        left:-4%;
+        // padding-bottom: 40px;
+        width: max-content;
+        @extend %list-style;
+        border: 1px solid map.get($color,"ebebeb");
+        background-color: map.get($color,"white");
+        &--disable{
+            @extend %display-none;
+        }
+        &__list-item{
+            padding: 15px 40px 15px 20px;
+            position: relative;
+            @extend %list-style;
+            &:not(.mega-menu__item--format):hover{
+                background-color: map.get($color,"yellow");
+                & > i{ 
+                    color: map.get($color,"white");
+                }
+                > .sub-menu__list-link{
+                    color: map.get($color,"white");
+                }
+            }
+        }
+        &--format {
+            top: 0%;
+            left: 100%;
+        }
+
+        &__list-link{
+            @extend %font-arial;
+            color: map.get($color,"text");;
+            padding:10px;
+        }
+    }
+}
+
+.wrapper-icon-title{
+    display: flex;
+    align-items: center;
+    // margin-bottom: 10px;
+
+    &--format{
+        font-size: 13px;
+        @extend %font-arial;
+        color:map.get($color,"898989");
+        text-transform: none;
+        & > .wrapper-icon-title__item{
+            background-color: map.get($color,"898989");
+        }
+    }
+}
+
+.wrapper-icon-title__list{
+    width: 12px;
+    height: 13px;
+    $flex : ("display" : inline-flex, 'justify-content' : space-between, "flex-wrap": wrap);
+    @include flex($flex);
+}
+.wrapper-icon-title__item {
+    width: 5px;
+    height: 5px;
+    background: map.get($color,"yellow");
+    font-size:0;
+}
+.wrapper-icon-title__link{
+    margin-left: 10px;
+    @extend %font-roboto-medium;
+    color: map.get($color,"text");;
+    @extend %text-uppercase;
+}
+.sub-menu__list-title{
+    @extend %list-style;
+}
+.mega-menu{
+    position: relative;
+    z-index: 9;
+    width: 100% !important;
+    padding:30px 0px 60px 25px;
+    left:0% !important;
+
+    $flex : ("display" : grid, "grid-template-columns" : repeat(4, auto), 'grid-template-rows' : repeat(2, auto),"grid-row-gap": 20px );
+    @include flex($flex);
+
+    box-shadow: 2px 2px 5px 0 map.get($color,"ebebeb"), -2px 2px 5px map.get($color,"ebebeb");
+
+    .wrapper-icon-title{
+        margin-bottom: 10px;
+    }
+    &--disable{
+        display: none;
+    }
+    &__item--format{
+        $color: #898989;
+        padding: 5px 0 !important;
+        .menu__list-link{
+            @extend %font-arial;
+            font-size: 13px;
+            text-transform: none;
+            color: $color;
+        }
+        & > i{
+            color: $color;
+        }
+    } 
+    img{
+        width: 225px;
+        height: 362px;
+        object-fit: cover;
+    }
+    .sub-menu__block-img{
+        grid-row: 1/ span 2;
+        grid-area: 1 / 4 / span 2 / span 1 ;
+    }
+}
+/* end header */

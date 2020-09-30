@@ -1,0 +1,53 @@
+extend index.pug
+
+block blog
+    .container
+        // start breadcrum
+        section.breadcumb.breadcumb--format
+            p.breadcumb__title Trang chủ
+            <i class="fas fa-caret-right"></i>
+            p.breadcumb__subt-title Tin Tức
+        include ./variables/list.pug
+        .blog
+            .blog-left
+                // start sản phẩm nổi bật
+                section.hot-products
+                    .hot-products__row-content
+                        .hot-products__left
+                            each value in detail_hot_products
+                                +icon-title(value)(class="wrapper-icon-title--format")
+                // end sản phẩm nổi bật
+
+                // start tin tức
+                section.hot-products.blog__news
+                    +icon-title('Danh Mục tin tức')(class="icon--format")
+                    .hot-products__row-content
+                        .hot-products__left
+                            each value in blog_menu_news
+                                +icon-title(value.title,'disable','')(class="wrapper-icon-title--format")
+                // end tin tức
+
+                
+
+                // start thư viện hình ảnh
+                section.hot-products.blog__imgs
+                    +icon-title('Thư viện ảnh')(class="icon--format")
+                    .blog__group-img
+                        each value in value_group_img
+                            a(href="" class="blog__link-img")
+                                img(src= value, alt="group img" class="blog__group-img-item")
+                            
+                // end  thư viện hình ảnh
+
+                // start tags
+                section.hot-products.blog__tags
+                    +icon-title('Thẻ tags')(class="icon--format")
+                    ul.blog__tags-list
+                        each value in value_tags
+                            li.blog__tags-item
+                                a(href="" class="blog__tags-link")= value
+                // end tags
+            .blog-right
+                block blog-list
+                block detail-blog
+        

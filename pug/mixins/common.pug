@@ -1,0 +1,88 @@
+mixin list-icon-top-header(values)
+    each value in values
+        li(class=attributes.class + '-list-item')
+            a(href="" class=attributes.class + '-list-link')!= value
+
+
+//- mixin pagination(value)
+//-     ul.pagination__list
+//-         li.pagination__item
+//-             a(href="" class="pagination__link") Trang trước
+
+//-         for i 
+      
+mixin list-blog(values)
+    each value in values
+        if value.status
+            .blog-list__block
+                a(href="" class="blog-list__link-img")
+                    img(src=value.img[0], alt="image blog" class="blog-list__img")
+                h3
+                    a(href="../../layouts/detail-blog.html" class="product-item__link-title")= value.title
+                .blog-list__group-info-blog
+                    p.date-time= value.date_time
+                    <i class="fas fa-user"></i>
+                    p.author 
+                        |  Đăng bởi  
+                        span.marker= value.author
+                    <i class="fas fa-comments"></i>
+                    p.date-time= `${value.comment} Bình luận`
+                each val in value.content
+                    p.blog-list__content.blog-list__content--format
+                        =val
+                a(href="" class="blog-list__link-img")
+                    img(src=value.img[1], alt="image blog" class="blog-list__img blog-list__img--format")
+                each val in value.content
+                    p.blog-list__content.blog-list__content--format
+                        =val
+                a(href="" class="blog-list__link-img")
+                    img(src=value.img[2], alt="image blog" class="blog-list__img blog-list__img--format")
+                each val in value.content
+                    p.blog-list__content.blog-list__content--format
+                        =val
+                p.blog-list__content.blog-list__content--format= value.content_end
+
+        else
+            .blog-list__block
+                a(href="" class="blog-list__link-img")
+                    img(src=value.img, alt="image blog" class="blog-list__img")
+                h3
+                    a(href="../../layouts/detail-blog.html" class="product-item__link-title")= value.title
+                .blog-list__group-info-blog
+                    p.date-time= value.date_time
+                    <i class="fas fa-user"></i>
+                    p.author 
+                        |  Đăng bởi
+                        span.marker= value.author
+                    <i class="fas fa-comments"></i>
+                    p.date-time= `${value.comment} Bình luận`
+                p.blog-list__content
+                    =value.content
+                    a(href="" class="blog-list__read-continue") [Đọc tiếp] 
+
+
+mixin blog-comments(value)
+    .blog-detail__comment(class!=attributes.class)
+        img(src=value.img class="blog-detail__avatar" alt="")
+        .blog-detail__content
+            a(href="" class="product-item__link-title")= value.name
+            .blog-list__group-info-blog.blog-detail__group--format
+                p.date-time= value.date_time
+                a(href="" class="reply") Trả lời
+            p.blog-list__content= value.content
+
+
+mixin shopping-cart(values)
+    each value in values
+        tr
+            td= value.stt 
+            td
+                img(src=value.img class="shopping-cart__img" alt="")
+            td= value.product
+            td= value.price
+            td 
+                input(type="number" value=value.quatity class="quality")
+            td= value.total
+            td 
+                a(href="")
+                    i(class="fas fa-times icon-close")

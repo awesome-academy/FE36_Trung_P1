@@ -1,0 +1,40 @@
+extend ../common_blog.pug
+
+
+block detail-blog
+    include ../variables/list.pug
+    include ../mixins/common.pug
+    .blog-detail
+        +list-blog(detail_blog)
+        .blog-detail__share
+            p.blog-detail__title TAGS: &nbsp;
+            - var list_tags = ["máy khoan", ', máy cắt cnc', ', máy in 3D', ', công nghệ', ', hàn xỉ', ', uốn thép...']
+            ul.blog-detail__list
+                each value in list_tags
+                    li.blog-detail__item-tag
+                        a(href="" class="blog-detail__link-tag")= value 
+            p.blog-detail__title CHIA SẺ: &nbsp;
+            ul.top__socials-list.blog-detail__list-share--format
+                +list-icon-top-header(icons)(class="blog-detail__share-icon--format top__socials")
+
+        .blog-detail__comments
+            p.blog-detail__title.blog-detail__title--format BÌNH LUẬN:
+            +blog-comments(blog_comments)
+            +blog-comments(blog_comments)
+            +blog-comments(blog_comments)
+            
+        .blog-detail__form-comment
+            section.register
+                p.register__title VIẾT BÌNH LUẬN CỦA BẠN:
+                form(action="" class="register__form-info-user")
+                    - var form_title = ["Họ và tên:", 'Email:']
+                    each value in form_title
+                        .register__form-group
+                            label(for="" class="register__lable-input")= value 
+                            |#[span.register__maker *] 
+                            input(type="text"  class="register__input")
+                    .register__form-group
+                            label(for="" class="register__lable-input") Bình luận 
+                            textarea(class="register__textarea")
+                .product-item__group-btn
+                    a(href="" class="product-item__link-buy product-item__link-btn") GỬI BÌNH LUẬN
